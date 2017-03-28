@@ -25,38 +25,31 @@ int		get_next_line(const int fd, char **line)
 	{
 		if ((ret = read(fd, gnl->buf, BUF_SIZE)) == -1)
 			return (-1);
-		gnl->data = ft_strjoin(gnl->data, gnl->buf);
-		ft_bzero(gnl->buf, BUF_SIZE + 1);
 		if (ret == 0)
 			break;
+		gnl->data = ft_strjoin(gnl->data, gnl->buf);
+		ft_bzero(gnl->buf, BUF_SIZE + 1);
 	}
 	gnl->found_it = ft_strchr(gnl->data, '\n') + 1;
 	*line = ft_strndup(gnl->data, ft_search_str(gnl->data, '\n'));
 	gnl->data = gnl->found_it;
-	if ((ret != 0 && *gnl->data != '\0') || (ft_strchr(gnl->data, '\n')))
-		return (1);
-	else
+	if (!ret && !ft_strlen(gnl->buf) && !ft_strlen(*line))
 		return (0);
+	else
+		return (1);
 }
 
 /*int		main(int ac, char **av)
 {
-	char		*line;
-	int			fd;
-	
-	line = NULL;
-	//fd = open(av[1], O_RDONLY);
-	if (ac > 1)
-	{
-		printf("%i\n%s\n", get_next_line(-99, NULL), line);
-		printf("%i\n%s\n", get_next_line(-1, NULL), line);
-		printf("%i\n%s\n", get_next_line(-10000, NULL), line);
-		printf("%i\n%s\n", get_next_line(1, NULL), line);
-		printf("%i\n%s\n", get_next_line(99, NULL), line);	
-		printf("%i\n%s\n", get_next_line(-99, &line), line);
-		printf("%i\n%s\n", get_next_line(-1, &line), line);
-		printf("%i\n%s\n", get_next_line(-10000, &line), line);
-		printf("%i\n%s\n", get_next_line(42, &line), line);
-	}
-	return (0);
+ 	char		*line;
+ 	int			fd;
+
+ 	line = NULL;
+ 	fd = open(av[1], O_RDONLY);
+  	if (ac > 1)
+  	{
+  		printf("%i\n%s\n", get_next_line(fd, &line), line);
+  		printf("%i\n%s\n", get_next_line(fd, &line), line);
+  	}
+  	return (0);
 }*/
