@@ -91,6 +91,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_lsteadd(t_list **alst, t_list *nw);
 char			*ft_strndup(const char *s1, size_t nbr);
-size_t			ft_search_str(char *str, char c);
+int				ft_search_str(char *str, char c);
 
 #endif

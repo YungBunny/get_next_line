@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t		ft_search_str(char *str, char c)
+int			ft_search_str(char *str, char c)
 {
 	int	 i;
 
@@ -29,5 +29,5 @@ size_t		ft_search_str(char *str, char c)
 				i++;
 		}
 	}
-	return (i);
+	return (-1);
 }
