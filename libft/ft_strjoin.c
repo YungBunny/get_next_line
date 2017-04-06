@@ -6,13 +6,13 @@
 /*   By: cfu <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 21:58:09 by cfu               #+#    #+#             */
-/*   Updated: 2017/03/24 01:47:56 by cfu              ###   ########.fr       */
+/*   Updated: 2016/12/29 22:43:01 by cfu              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 	size_t	i;
@@ -35,7 +35,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 		while (s2[j])
 			str[i++] = s2[j++];
 		str[i] = '\0';
-		ft_strdel(&s1);
+		ft_strdel((char **)&s1);
 		return (str);
 	}
 }

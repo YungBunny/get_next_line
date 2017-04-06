@@ -12,20 +12,19 @@
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUF_SIZE 32
+# define BUFF_SIZE 32
 # include "libft/libft.h"
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>
 
-typedef struct		s_line
+typedef struct	s_line
 {
 	char			*data;
-	char			buf[BUF_SIZE + 1];
+	char			buf[BUFF_SIZE + 1];
 	char			*found_it;
-	char			*last;
-}					t_line;
+}				t_line;
 
-int		get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, char **line);
+int				read_that(char **data, char *buf, int fd);
 
 #endif

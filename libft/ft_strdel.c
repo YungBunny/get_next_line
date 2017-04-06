@@ -18,8 +18,8 @@ void	ft_strdel(char **as)
 	{
 		while (*as)
 		{
-			*as = NULL;
 			free(*as);
+			*as = NULL;
 		}
 	}
 }
